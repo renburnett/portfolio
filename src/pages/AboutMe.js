@@ -19,7 +19,7 @@ class AboutMe extends Component {
             <Card style={{minWidth: '35vh'}}>
               <Card.Content textAlign='left'>
                 <Header as='h3' color='teal'>
-                  About Me:
+                  About Me
                 </Header>
                 <Card.Description>
                   { CONSTANTS.ABOUT_ME }
