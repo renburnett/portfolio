@@ -8,6 +8,7 @@ class Projects extends Component {
         <Grid.Column style={{ width: '100vh'}}>
           <Card.Group centered itemsPerRow='3'>
             <Card style={{maxWidth: '35vh'}}>
+              <Card.Header>PROJECTS PAGE STILL IN PROGRESS</Card.Header>
               <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
             </Card>
             <Card style={{maxWidth: '35vh'}}>
