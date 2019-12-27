@@ -13,7 +13,7 @@ class AboutMe extends Component {
               <Card.Description>
               </Card.Description>
               <Card.Content extra>
-              The majestic Triceratops roamed North America about 68 million years ago and was a vegetarian (like me!)
+                The majestic Triceratops roamed North America about 68 million years ago and was a vegetarian (like me!)
               </Card.Content>
             </Card>
             <Card style={{minWidth: '35vh'}}>
