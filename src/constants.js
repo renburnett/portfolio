@@ -1,3 +1,4 @@
+import { gql } from 'apollo-boost';
 
 const CONSTANTS = {
   CURRENT_CITY: "mossy Seattle, WA",
@@ -6,6 +7,25 @@ const CONSTANTS = {
   EMAIL: "renardburnett@gmail.com",
   LINKED_IN: "https://www.linkedin.com/in/renard-burnett-ii/",
   GITHUB: "https://github.com/renburnett",
+  GITHUB_API_ENDPOINT: "https://api.github.com/graphql",
+  REPOS_QUERY: gql`
+    query {
+      user(login: "renburnett") {
+        pinnedItems(first: 6, types: [REPOSITORY]) {
+          edges {
+            node {
+              ... on Repository {
+                name
+                primaryLanguage {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
 }
 
 export default CONSTANTS;

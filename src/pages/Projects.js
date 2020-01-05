@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
-import { Card, Image, Grid } from 'semantic-ui-react';
+import { Card, Grid } from 'semantic-ui-react';
+import { graphql } from 'react-apollo';
+import Project from '../components/Project';
+import CONSTANTS from '../constants';
 
 class Projects extends Component {
+
+  displayProjects = () => {
+    console.log('helloQ!!!!!!!!')
+    console.log('props', this.props)
+  }
+
   render() {
     return (
       <Grid stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ width: '100vh'}}>
           <Card.Group centered itemsPerRow='3'>
-            <Card style={{maxWidth: '35vh'}}>
-              <Card.Header>PROJECTS PAGE STILL IN PROGRESS</Card.Header>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
-            <Card style={{maxWidth: '35vh'}}>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
-            <Card style={{maxWidth: '35vh'}}>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
-            <Card style={{maxWidth: '35vh'}}>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
-            <Card style={{maxWidth: '35vh'}}>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
-            <Card style={{maxWidth: '35vh'}}>
-              <Image src='http://pngimg.com/uploads/dinosaur/dinosaur_PNG16575.png' wrapped ui={false} />
-            </Card>
+            {this.displayProjects()}
           </Card.Group>
         </Grid.Column>
       </Grid>
@@ -33,4 +24,4 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+export default graphql(CONSTANTS.REPOS_QUERY)(Projects);
