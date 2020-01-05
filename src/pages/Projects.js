@@ -7,8 +7,7 @@ import CONSTANTS from '../constants';
 class Projects extends Component {
 
   displayProjects = () => {
-    console.log('helloQ!!!!!!!!')
-    console.log('props', this.props)
+    console.log("Projects page", process.env)
   }
 
   render() {

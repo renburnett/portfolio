@@ -8,6 +8,7 @@ import './App.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import CONSTANTS from './constants';
+require('dotenv').config();
 
 const apolloClient = new ApolloClient({
   uri: CONSTANTS.GITHUB_API_ENDPOINT
