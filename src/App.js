@@ -5,6 +5,7 @@ import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
 import NavBar from './components/NavBar';
 import './App.css';
+require('dotenv').config(); //use to access env variables for auth tokens
 
 function App() {
   return (
