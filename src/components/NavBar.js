@@ -8,6 +8,7 @@ const NavBar = () => {
       <Menu.Item name='home' as={Link} to='/' />
       <Menu.Item name='about me' as={Link} to='/about-me' />
       <Menu.Item name='projects' as={Link} to='/projects' />
+      <Menu.Item name='resume' as={Link} to='/resume' />
     </Menu> 
   );
 }
