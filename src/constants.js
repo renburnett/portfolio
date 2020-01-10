@@ -15,6 +15,9 @@ const CONSTANTS = {
             node {
               ... on Repository {
                 name
+                url
+                homepageUrl
+                description
                 primaryLanguage {
                   name
                 }
