@@ -14,22 +14,6 @@ class Projects extends Component {
       .catch(error => console.log(error));
   }
 
-  // fetchPinnedRepos = () => {
-  //   console.log('key', process.env.REACT_APP_GITHUB_KEY)
-  //   query(
-  //     {
-  //       query: CONSTANTS.REPOS_QUERY,
-  //       endpoint: CONSTANTS.GITHUB_API_URL,
-  //       headers: {
-  //         'Access-Control-Allow-Headers': '*',
-  //         'Authorization': `bearer ${process.env.REACT_APP_GITHUB_KEY}`,
-  //       }
-  //     },
-  //   )
-  //   .then((response) => console.log(response))
-  //   .catch((error) => console.error(error))
-  // }
-
   displayProjects = () => {
     
   }
