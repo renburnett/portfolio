@@ -4,8 +4,8 @@ import rubyLogo from '../images/rubyLogo.png';
 import jsLogo from '../images/jsLogo.png';
 import pythonLogo from '../images/pythonLogo.png';
 import githubDefault from '../images/githubDefault.png';
-//import cLogo from '../images/cLogo.png';
-//import reactLogo from '../images/reactLogo.png';
+import cLogo from '../images/cLogo.png';
+import reactLogo from '../images/reactLogo.png';
 
 class Project extends Component {
 
@@ -13,17 +13,21 @@ class Project extends Component {
     languageLogo: null
   }
 
-  componentDidMount() {
+  componentDidMount() { 
     const { primaryLanguage } = this.props.project;
 
-    if (primaryLanguage === "JavaScript") {
-      this.setState({languageLogo: jsLogo})
-    } else if (primaryLanguage === "Ruby") {
-      this.setState({languageLogo: rubyLogo})
-    } else if (primaryLanguage === "Python") {
-      this.setState({languageLogo: pythonLogo})
-    } else {
-      this.setState({languageLogo: githubDefault})
+    switch(primaryLanguage) {
+      case 'JavaScript':
+        this.setState({languageLogo: jsLogo})
+        break;
+      case 'Ruby':
+        this.setState({languageLogo: rubyLogo})
+        break;
+      case 'Python':
+        this.setState({languageLogo: pythonLogo})
+        break;
+      default:
+        this.setState({languageLogo: githubDefault})
     }
   }
 
