@@ -35,10 +35,10 @@ class Projects extends Component {
 
   render() {
     return (
-      <Grid stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid stackable textAlign='center' style={{ height: '100vh' }}>
         <Grid.Column style={{ width: '100vh'}}>
-          <Card.Group centered itemsPerRow='3'>
-          {this.displayProjects()}
+          <Card.Group itemsPerRow='3' doubling>
+            {this.displayProjects()}
           </Card.Group>
         </Grid.Column>
       </Grid>
