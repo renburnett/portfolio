@@ -24,10 +24,10 @@ class Resume extends Component {
     const { pageNumber, numPages } = this.state;
 
     return (
-      <Grid stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: '100vh'}}>
+      <Grid stackable textAlign='center' verticalAlign='middle'>
+        <Grid.Column>
           <Grid.Row>
-            <Container style={{'border-style': 'solid', 'border-color': 'black', 'border-width': '.75px', 'border-radius': '.75px'}} as={Link} to={ResumeJan20} target="_blank" download>
+            <Container as={Link} to={ResumeJan20} target="_blank" download>
               <Document
                 file={ResumeJan20}
                 onLoadSuccess={this.onDocumentLoadSuccess}
