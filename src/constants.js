@@ -8,7 +8,6 @@ const CONSTANTS = {
   GITHUB_URL: "https://www.github.com/renburnett",
   MEDIUM_URL: "https://www.medium.com/@renxburnett",
   GITHUB_API_URL: "https://api.github.com/graphql",
-  RESUME_URL: "https://pdfhost.io/v/cw0GtPIJ_ResumeJan19pdf.pdf",
   REPOS_QUERY: `
     query {
       user(login: "renburnett") {
