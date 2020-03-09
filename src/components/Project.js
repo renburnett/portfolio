@@ -4,6 +4,7 @@ import rubyLogo from '../images/rubyLogo.png';
 import jsLogo from '../images/jsLogo.png';
 import pythonLogo from '../images/pythonLogo.png';
 import githubDefault from '../images/githubDefault.png';
+import tsLogo from '../images/tsLogo.png';
 import cLogo from '../images/cLogo.png';
 import reactLogo from '../images/reactLogo.png';
 
@@ -19,6 +20,9 @@ class Project extends Component {
     switch(primaryLanguage) {
       case 'JavaScript':
         this.setState({languageLogo: jsLogo})
+        break;
+      case 'TypeScript':
+        this.setState({languageLogo: tsLogo})
         break;
       case 'Ruby':
         this.setState({languageLogo: rubyLogo})
