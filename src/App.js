@@ -6,9 +6,9 @@ import Projects from './pages/Projects';
 import NavBar from './components/NavBar';
 import Resume from './pages/Resume';
 import './App.css';
-require('dotenv').config(); //use to access env variables for auth tokens
+require('dotenv').config(); //use to access env variables for github auth tokens
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Router>
@@ -21,5 +21,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

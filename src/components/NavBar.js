@@ -4,7 +4,7 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <Menu inverted >
+    <Menu inverted>
       <Menu.Item name='home' as={Link} to='/' />
       <Menu.Item name='resume' as={Link} to='/resume' />
       <Menu.Item name='projects' as={Link} to='/projects' />
