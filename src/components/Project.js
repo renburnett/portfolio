@@ -7,7 +7,6 @@ import githubDefault from '../images/githubDefault.png';
 import tsLogo from '../images/tsLogo.png';
 
 const Project = props =>  {
-
   const [ languageLogo, setLanguageLogo ] = useState(null);
   const { primaryLanguage } = props.project;
 
