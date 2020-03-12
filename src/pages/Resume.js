@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Container } from 'semantic-ui-react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import ResumeJan20 from '../../src/ResumeJan20.pdf';
+import ResumeJan20 from '../../src/RenFullstackDev0320.pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 
 class Resume extends Component {
