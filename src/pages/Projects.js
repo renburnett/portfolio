@@ -8,6 +8,12 @@ const Projects = (props) =>  {
   const [ projects, setProjects ] = useState([]);
   const oAuth = {'Authorization': `bearer ${process.env.REACT_APP_GITHUB_KEY}`}
 
+  useEffect(() => {
+    axios.post(CONSTANTS.GITHUB_API_URL, {query: CONSTANTS.REPOS_QUERY}, {headers: oAuth})
+      .then(res => setProjects(parseResponse(res)))
+      .catch(error => console.log(error));
+  })
+
   const parseResponse = (res) => {
     const { edges } = res.data.data.user.pinnedItems;
     return edges.map(repo => {
@@ -20,12 +26,6 @@ const Projects = (props) =>  {
       return <Project project={project} idx={idx} key={idx} />
     })
   }
-
-  useEffect(() => {
-    axios.post(CONSTANTS.GITHUB_API_URL, {query: CONSTANTS.REPOS_QUERY}, {headers: oAuth})
-      .then(res => setProjects(parseResponse(res)))
-      .catch(error => console.log(error));
-  })
 
   return (
     <Grid stackable textAlign='center' style={{ height: '100vh' }}>
