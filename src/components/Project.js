@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Image, Header, CardContent, Button, Icon} from 'semantic-ui-react';
 import rubyLogo from '../images/rubyLogo.png';
+import cLogo from '../images/cLogo.png';
 import jsLogo from '../images/jsLogo.png';
 import pythonLogo from '../images/pythonLogo.png';
 import githubDefault from '../images/githubDefault.png';
@@ -23,6 +24,9 @@ const Project = props =>  {
         break;
       case 'Python':
         setLanguageLogo(pythonLogo);
+        break;
+      case 'C#':
+        setLanguageLogo(cLogo);
         break;
       default:
         setLanguageLogo(githubDefault);
