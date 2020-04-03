@@ -4,8 +4,9 @@ import CONSTANTS from '../constants';
 
 const AboutMe = (props) => {
   return (
-    <Grid stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid stackable textAlign='center' style={{ height: '100vh' }} >
       <Grid.Column style={{ maxWidth: '100vh'}}>
+        {/*TODO: add verticalAlign='middle' to Grid.Column */}
         <Card.Group centered>
           <Card style={{minWidth: '35vh'}}>
             <Card.Content textAlign='left'>
