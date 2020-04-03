@@ -4,8 +4,9 @@ import CONSTANTS from '../constants';
 
 const Landing = () => {
   return (
-    <Grid stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid stackable textAlign='center' style={{ height: '100vh' }} >
       <Grid.Column style={{ maxWidth: '100vh'}}>
+        {/*TODO: add verticalAlign='middle' to Grid.Column */}
         <Card.Group centered>
           <Card style={{minWidth: '35vh'}}>
             <Image src='https://avatars0.githubusercontent.com/u/13320440?s=460&v=4' wrapped ui={false} />
