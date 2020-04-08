@@ -4,7 +4,7 @@ import Project from '../components/Project';
 import CONSTANTS from '../constants';
 const axios = require('axios');
 
-const Projects = (props) =>  {
+const Projects = () =>  {
   const [ projects, setProjects ] = useState([]);
   const oAuth = {'Authorization': `bearer ${process.env.REACT_APP_GITHUB_KEY}`}
 
