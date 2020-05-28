@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Image, Header, CardContent, Button, Icon} from 'semantic-ui-react';
+import { Card, Image, Header, CardContent, Button, Icon } from 'semantic-ui-react';
 import rubyLogo from '../images/rubyLogo.png';
 import cLogo from '../images/cLogo.png';
 import jsLogo from '../images/jsLogo.png';
@@ -7,12 +7,12 @@ import pythonLogo from '../images/pythonLogo.png';
 import githubDefault from '../images/githubDefault.png';
 import tsLogo from '../images/tsLogo.png';
 
-const Project = props =>  {
-  const [ languageLogo, setLanguageLogo ] = useState(null);
+const Project = props => {
+  const [languageLogo, setLanguageLogo] = useState(null);
   const { primaryLanguage } = props.project;
 
   useEffect(() => {
-    switch(primaryLanguage) {
+    switch (primaryLanguage) {
       case 'JavaScript':
         setLanguageLogo(jsLogo);
         break;
@@ -34,24 +34,24 @@ const Project = props =>  {
   }, [primaryLanguage]);
 
   return (
-    <Card href={props.project.url} style={{maxWidth: '35vh'}}>
+    <Card href={props.project.url} style={{ maxWidth: '35vh' }}>
       <Image src={languageLogo} wrapped ui={false} />
       <Header as="h3" color="teal">{props.project.name}</Header>
       <CardContent>{props.project.description}</CardContent>
-      {props.project.homepageUrl ? 
+      {props.project.homepageUrl ?
         <Button animated href={props.project.homepageUrl} secondary>
           <Button.Content visible>live project</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow right' />
           </Button.Content>
         </Button>
-          : 
+        :
         <Button animated secondary>
           <Button.Content visible>project not live yet</Button.Content>
           <Button.Content hidden>
             <Icon name='arrow right' />
           </Button.Content>
-        </Button> }
+        </Button>}
     </Card>
   )
 }
