@@ -8,11 +8,11 @@ const Landing = () => {
       <Grid.Column style={{ maxWidth: '100vh'}}>
         {/*TODO: add verticalAlign='middle' to Grid.Column */}
         <Card.Group centered>
-          <Card style={{minWidth: '35vh'}}>
+          <Card href={'https://www.linkedin.com/in/renard-burnett-ii/'} style={{minWidth: '35vh'}}>
             <Image src='https://avatars0.githubusercontent.com/u/13320440?s=460&v=4' wrapped ui={false} />
             <Card.Content extra>
-                Currently located in: <br/> 
-                lovely, {CONSTANTS.CURRENT_CITY}!
+                Currently: <br/> 
+                {CONSTANTS.CURRENT_CITY}!
             </Card.Content>
           </Card>
           <Card style={{minWidth: '35vh'}}>
@@ -22,7 +22,7 @@ const Landing = () => {
               </Header>
               <Card.Description>
                 { CONSTANTS.QUICK_BIO_A }
-                <Label color="blue" href="https://www.democracylab.org/index/?section=AboutProject&id=149"> Banana App </Label>
+                <Label color="blue" href="https://www.bananaapp.org/"> Banana App </Label>
                 { CONSTANTS.QUICK_BIO_B }
               </Card.Description>
             </Card.Content>
