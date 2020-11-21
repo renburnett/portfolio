@@ -24,6 +24,7 @@ const Landing = () => {
                 { CONSTANTS.QUICK_BIO_A }
                 <Label color="blue" href="https://www.bananaapp.org/"> Banana App </Label>
                 { CONSTANTS.QUICK_BIO_B }
+                <Label color="blue" href="https://levelup.gitconnected.com/implementing-a-bst-in-javascript-dc818ba50633"> Level Up Coding </Label>
               </Card.Description>
             </Card.Content>
           </Card>
