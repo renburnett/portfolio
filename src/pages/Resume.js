@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Grid, Container } from "semantic-ui-react";
 import { Document, Page, pdfjs } from "react-pdf";
-import ResumeJan21 from "../../src/FullstackJan21.pdf";
+import resume from "../../src/FullstackJun21.pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
 class Resume extends Component {
@@ -26,9 +26,9 @@ class Resume extends Component {
       <Grid stackable textAlign="center" verticalAlign="middle">
         <Grid.Column>
           <Grid.Row>
-            <Container as={Link} to={ResumeJan21} target="_blank" download>
+            <Container as={Link} to={resume} target="_blank" download>
               <Document
-                file={ResumeJan21}
+                file={resume}
                 onLoadSuccess={this.onDocumentLoadSuccess}
                 onLoadError={console.error}
               >
