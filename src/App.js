@@ -1,23 +1,21 @@
-import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Landing from './pages/Landing';
-import AboutMe from './pages/AboutMe';
-import Projects from './pages/Projects';
-import NavBar from './components/NavBar';
-import Resume from './pages/Resume';
 import './App.css';
-require('dotenv').config(); //use to access env variables for github auth tokens
+import LandingPage from './Pages/LandingPage/LandingPage';
+import AboutPage from './Pages/AboutPage/AboutPage';
+import ResumePage from './Pages/ResumePage/ResumePage';
+import NavBar from './components/NavBar/NavBar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <Route exact path='/' component={ () => <Landing /> } />
-        <Route exact path='/about-me' component={ () => <AboutMe /> } />
-        <Route exact path='/projects' component={ () => <Projects /> } />
-        <Route exact path='/resume' component={ () => <Resume /> } />
-      </Router>
-    </div>
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route exact path='/' element={ <LandingPage /> } />
+        <Route exact path='/about-me' element={ <AboutPage /> } />
+        <Route exact path='/resume' element={ <ResumePage /> } />
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;
