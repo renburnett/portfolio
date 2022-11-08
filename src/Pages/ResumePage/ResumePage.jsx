@@ -18,7 +18,12 @@ const ResumePage = () => (
           allow='fullscreen'
         />
         <a href={CONSTANTS.LINKED_IN_URL}>
-          <img id='pdf-png' src={resumePng}/>
+          <img
+            title="Ren Burnett's Resume"
+            alt="Ren Burnett's Resume"
+            id='pdf-png'
+            src={resumePng}
+          />
         </a>
       </Grid.Column>
     </Grid>
