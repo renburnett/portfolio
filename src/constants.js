@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  CURRENT_CITY: "Enjoying the moss and drizzle in Seattle!",
+  CURRENT_CITY: "Bouncing between Los Angeles and Seattle",
   CURRENT_WORK: "https://mobyinc.com/",
   QUICK_BIO_A:
     "Hi there! My name is Ren, and I'm a Fullstack Web Developer. I am currently working for ",
