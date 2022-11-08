@@ -1,7 +1,12 @@
-.resume-grid {
-  min-height: 100vh !important;
+.ui.grid>.column:not(.row) {
+  padding: 0 !important;
 }
 
-// #iframepdf {
-//   min-height: 100vh !important;
-// }
+#iframe-pdf {
+  border: none;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+}

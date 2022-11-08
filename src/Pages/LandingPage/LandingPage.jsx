@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Grid, GridRow, Header, Image, Label, Message } from "semantic-ui-react";
+import { Card, Grid, GridRow, Header, Image, Label } from "semantic-ui-react";
 import CONSTANTS from "../../constants";
 import ron from '../../assets/ron.jpg';
 import './LandingPage.scss';
@@ -10,7 +10,7 @@ const Landing = () => {
       <GridRow>
         <Grid.Column>
           <Card.Group centered className="landing-card-group">
-            <Card className="landing-card" href="https://www.linkedin.com/in/renard-burnett-ii/">
+            <Card className="landing-card" href={CONSTANTS.LINKED_IN_URL}>
               <Image src={ron} />
               <Card.Content>
                 <b>

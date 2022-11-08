@@ -1,11 +1,19 @@
 import { Grid } from 'semantic-ui-react';
 import resume from '../../assets/resume.pdf';
+import './ResumePage.scss';
 
-// Create Document Component
 const ResumePage = () => (
-  <Grid className='resume-grid' stackable textAlign='center'>
+  <Grid
+    stackable
+    textAlign='center'
+  >
       <Grid.Column >
-        <iframe id="iframepdf" src={resume}></iframe>
+        <iframe
+          id="iframe-pdf"
+          title="resume"
+          type="application/pdf"
+          src={resume}
+        />
       </Grid.Column>
     </Grid>
 );
