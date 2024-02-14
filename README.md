@@ -6,11 +6,6 @@ This project was built with React and makes use of:
   - And the Semantic-React-Ui package for styling
 This project is a chance to give a quick overview of past projects and a few of my personal interests.
 
-**Feel free to head over there and poke around!**
-https://www.renburnett.com
-
-![Landing Page!](https://live.staticflickr.com/65535/49363862343_999ed614b8_w.jpg)
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
