@@ -10,6 +10,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import "semantic-ui-css/semantic.min.css";
 
+// TODO: layout, favicon and title
+
+//maybe make side scroller game or copy jurassic park website? or maybe even Dinos?
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,3 +49,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+

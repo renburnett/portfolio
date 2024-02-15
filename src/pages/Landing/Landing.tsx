@@ -1,16 +1,12 @@
-import React from "react";
 import { Card, Grid, GridRow, Header, Image, Label } from "semantic-ui-react";
 import CONSTANTS from "../../constants";
 import ron from '../../assets/ron.jpg';
 import './Landing.scss';
-import { Outlet } from "react-router-dom";
 
 const Landing = () => {
   return (
     <Grid stackable textAlign="center">
-      {/* TODO: remove? */}
-      <Outlet/>
-      <GridRow>
+      <GridRow stretched>
         <Grid.Column>
           <Card.Group centered className="landing-card-group">
             <Card className="landing-card" href={CONSTANTS.LINKED_IN_URL}>

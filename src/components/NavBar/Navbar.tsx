@@ -1,5 +1,6 @@
 import { Icon, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import './Navbar.scss';
 
 const NavBar = () => {
   return (
