@@ -2,11 +2,14 @@ import React from "react";
 import { Card, Grid, GridRow, Header, Image, Label } from "semantic-ui-react";
 import CONSTANTS from "../../constants";
 import ron from '../../assets/ron.jpg';
-import './LandingPage.scss';
+import './Landing.scss';
+import { Outlet } from "react-router-dom";
 
 const Landing = () => {
   return (
     <Grid stackable textAlign="center">
+      {/* TODO: remove? */}
+      <Outlet/>
       <GridRow>
         <Grid.Column>
           <Card.Group centered className="landing-card-group">

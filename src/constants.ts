@@ -1,4 +1,17 @@
-const CONSTANTS = {
+const CONSTANTS: {
+  CURRENT_CITY: string;
+  CURRENT_WORK: string;
+  QUICK_BIO_A: string;
+  QUICK_BIO_B: string;
+  ABOUT_ME: string;
+  EMAIL: string;
+  LINKED_IN_URL: string;
+  GITHUB_URL: string;
+  MEDIUM_URL: string;
+  MEDIUM_BLOG: string;
+  GITHUB_API_URL: string;
+  REPOS_QUERY: string;
+} = {
   CURRENT_CITY: "Bouncing between Los Angeles and Seattle",
   CURRENT_WORK: "https://mobyinc.com/",
   QUICK_BIO_A:
