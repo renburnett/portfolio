@@ -14,6 +14,9 @@ const NavBar = () => {
       <Menu.Item name='resume' as={Link} to='/cv'>
         <Icon name='file alternate outline' />
       </Menu.Item>
+      <Menu.Item name='tricerahops' as={Link} to='/tricerahops'>
+        <Icon name='gamepad' />
+      </Menu.Item>
       {/* <Menu.Item name='projects' as={Link} to='/projects' /> */}
     </Menu>
   );

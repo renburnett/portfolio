@@ -9,6 +9,7 @@ import Layout from "./components/Layout/Layout.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import "semantic-ui-css/semantic.min.css";
+import GameCanvas from "./pages/Tricerahops/GameCanvas.tsx";
 
 // TODO: layout, favicon and title
 
@@ -38,6 +39,15 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <CvPage />
+      </Layout>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/tricerahops",
+    element: (
+      <Layout>
+        <GameCanvas />
       </Layout>
     ),
     errorElement: <ErrorPage />,
