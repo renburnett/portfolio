@@ -1,5 +1,5 @@
 import { useEffect, useRef, FC } from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid, Button, Icon } from "semantic-ui-react";
 import Game from "./Game";
 import "./Styles.scss";
 
@@ -27,12 +27,17 @@ const GameCanvas: FC = () => {
   }, []);
 
   return (
-    <Grid className="vertically-center-children" stackable>
+    <Grid className="canvas-container" stackable>
       <Grid.Row>
         <Grid.Column verticalAlign="middle">
           <canvas ref={canvasRef} />
           <div className="button-container">
-            <Button primary onClick={() => game.start()} >Start</Button>
+            <Button primary onClick={() => game.start()}>
+              <Icon name='play' />
+            </Button>
+            <Button icon onClick={() => game.stop()}>
+              <Icon name='pause' />
+            </Button>
           </div>
         </Grid.Column>
       </Grid.Row>

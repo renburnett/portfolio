@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import App from './App.tsx'
 import LandingPage from "./pages/Landing/Landing.tsx";
 import AboutPage from "./pages/About/About.tsx";
 import CvPage from "./pages/CV/CV.tsx";
@@ -10,10 +9,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import "semantic-ui-css/semantic.min.css";
 import GameCanvas from "./pages/Tricerahops/GameCanvas.tsx";
-
-// TODO: layout, favicon and title
-
-//maybe make side scroller game or copy jurassic park website? or maybe even Dinos?
 
 const router = createBrowserRouter([
   {

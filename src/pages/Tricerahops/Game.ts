@@ -1,12 +1,14 @@
 import Player from "./Player";
 import Terrain from "./Terrain";
 
+export const SPRITE_SCALE_DOWN_RATIO = 1.5;
+
 // TODO: move this to constants file
 export const GAME_WIDTH = 800;
 export const GAME_HEIGHT = 200;
 
-export const PLAYER_WIDTH = 88 / 1.5; //58px
-export const PLAYER_HEIGHT = 94 / 1.5; //62px
+export const PLAYER_WIDTH = 88 / SPRITE_SCALE_DOWN_RATIO; // (88 / 1.5 = 58px)
+export const PLAYER_HEIGHT = 94 / SPRITE_SCALE_DOWN_RATIO; // (94 / 1.5 = 62px)
 
 export const MIN_JUMP_HEIGHT = 150;
 export const MAX_JUMP_HEIGHT = 200;
@@ -17,6 +19,12 @@ export const TERRAIN_AND_CACTUS_SPEED = 0.5;
 
 export const GAME_SPEED_START = 0.75; // EVENTUALLY 1.0
 export const GAME_SPEED_INCREMENT = 0.001;
+
+export const CACTUSES_CONFIG = [
+  { width: 48 / SPRITE_SCALE_DOWN_RATIO, height: 100 / SPRITE_SCALE_DOWN_RATIO, image: "src/assets/sprites/cactus_1.png"},
+  { width: 98 / SPRITE_SCALE_DOWN_RATIO, height: 100 / SPRITE_SCALE_DOWN_RATIO, image: "src/assets/sprites/cactus_2.png"},
+  { width: 68 / SPRITE_SCALE_DOWN_RATIO, height: 70 / SPRITE_SCALE_DOWN_RATIO, image: "src/assets/sprites/cactus_3.png"},
+]
 
 
 
@@ -29,8 +37,7 @@ class Game {
   terrain: Terrain | null = null;
   gameSpeed: number = GAME_SPEED_START;
 
-  // TODO: remove?
-  // gameRunning: boolean = false;
+  gameRunning: boolean = false;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -112,9 +119,15 @@ class Game {
   /* TODO: change this to setTimeout? */
   /* (the speed at which requestAnimationFrame is called depends on your monitors refresh rate [e.g. 60hz]) */
   gameLoop = (currentTime: number) => {
+    if (!this.gameRunning) {
+      return;
+    }
+
     if (this.previousTime === null) {
       this.previousTime = currentTime;
       requestAnimationFrame(this.gameLoop);
+
+      this.gameRunning = true;
       return;
     }
 
@@ -147,10 +160,12 @@ class Game {
     console.log('start the game, requestAnimationFrame(this.gameLoop);')
 
     requestAnimationFrame(this.gameLoop);
+    this.gameRunning = true;
   }
 
   stop = () => {
-    // cleanup/reset game
+    this.gameRunning = false;
+    // TODO: cleanup/reset game
   }
 }
 

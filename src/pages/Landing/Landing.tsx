@@ -5,8 +5,8 @@ import './Landing.scss';
 
 const Landing = () => {
   return (
-    <Grid className="vertically-center-children" stackable>
-      <Grid.Row stretched>
+    <Grid className="landing-grid">
+      <Grid.Row>
         <Grid.Column verticalAlign="middle">
           <Card.Group centered className="landing-card-group">
             <Card className="landing-card" href={CONSTANTS.LINKED_IN_URL}>

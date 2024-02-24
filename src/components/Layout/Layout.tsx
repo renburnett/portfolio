@@ -1,16 +1,19 @@
 import { ReactNode } from 'react';
-import { Navbar, Footer } from '../index';
+import { Navbar } from '../index';
 import './Layout.scss';
+import Footer from '../Footer/Footer';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className='layout-container'>
+    <>
       <Navbar />
-      <main>
-        {children}
-      </main>
-      <Footer/>
-    </div>
+      <div className='layout-container'>
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 

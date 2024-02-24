@@ -1,11 +1,18 @@
-canvas {
-  display: block;
-  margin: 0.5rem;
-  margin-bottom: 0;
-  border: 0.1px solid grey;
-  background-color: white;
-}
+.canvas-container {
 
-.button-container {
-  margin: 0.5rem;
+  canvas {
+    display: block;
+    margin-bottom: 0;
+    border: 0.1px solid grey;
+    background-color: white;
+  }
+
+  .button-container {
+    margin: 0.5rem;
+    margin-left: 0;
+
+    .ui.button > .play.icon {
+      margin: 0;
+    }
+  }
 }

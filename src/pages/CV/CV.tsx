@@ -1,12 +1,10 @@
-import { Grid } from 'semantic-ui-react';
 import resumePdf from '../../assets/resume.pdf';
 import resumePng from '../../assets/resume.png';
 import CONSTANTS from '../../constants';
 import './CV.scss';
 
 const CV = () => (
-  <Grid>
-    <Grid.Column>
+  <>
     <iframe
       id='iframe-pdf'
       title='resume'
@@ -21,8 +19,7 @@ const CV = () => (
         src={resumePng}
       />
     </a>
-    </Grid.Column>
-  </Grid>
+  </>
 );
 
 export default CV;
