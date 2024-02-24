@@ -36,7 +36,14 @@ class Game {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d")!;
 
-    requestAnimationFrame(this.gameLoop); //TODO: UNCOMMENT THIS LINE TO START GAME LOOP
+    if (this.player !== null) {
+      this.player.draw();
+    }
+
+    if (this.terrain !== null) {
+      this.terrain.draw();
+    }
+
   }
 
   createSprites = () => {
@@ -114,7 +121,6 @@ class Game {
     const frameTimeDelta = currentTime - this.previousTime;
     this.previousTime = currentTime;
 
-    console.log(frameTimeDelta);
     this.clearScreen();
 
     //update game
@@ -138,7 +144,9 @@ class Game {
   }
 
   start = () => {
-    // start game loop
+    console.log('start the game, requestAnimationFrame(this.gameLoop);')
+
+    requestAnimationFrame(this.gameLoop);
   }
 
   stop = () => {

@@ -5,7 +5,7 @@ import './Landing.scss';
 
 const Landing = () => {
   return (
-    <Grid className="landing-grid" stackable>
+    <Grid className="vertically-center-children" stackable>
       <Grid.Row stretched>
         <Grid.Column verticalAlign="middle">
           <Card.Group centered className="landing-card-group">
