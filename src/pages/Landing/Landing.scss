@@ -1,12 +1,15 @@
-.landing-card-group {
-  margin-top: 5% !important;
+.landing-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .landing-card {
   min-width: 25rem !important;
 }
 
-.ui.cards>.card a {
+.ui.cards > .card a {
   margin-top: -2px;
   margin-bottom: -3px;
 }

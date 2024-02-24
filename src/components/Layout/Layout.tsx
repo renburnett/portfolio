@@ -1,17 +1,15 @@
 import { ReactNode } from 'react';
-import Navbar from '../Navbar/Navbar';
+import { Navbar, Footer } from '../index';
 import './Layout.scss';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className='layout-container'>
+      <Navbar />
       <main>
-        <Navbar />
         {children}
       </main>
-      <footer className='footer'>
-        <p>&copy; 2024 Your Website</p>
-      </footer>
+      <Footer/>
     </div>
   );
 };
