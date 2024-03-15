@@ -4,13 +4,13 @@ import Cactus from './Cactus';
 const CACTUS_INTERVAL_MIN = 500;
 const CACTUS_INTERVAL_MAX = 2000;
 
-export type CactusSpriteConfig = {
+type CactusSpriteConfig = {
   image: HTMLImageElement;
   width: number;
   height: number;
 };
 
-export class CactusController {
+export default class CactusController {
   ctx: CanvasRenderingContext2D;
   canvas: HTMLCanvasElement;
   cactiImages: CactusSpriteConfig[] = [];

@@ -1,18 +1,18 @@
 export const WALK_ANIMATION_COUNTDOWN = 200;
 
 export default class Player {
-  ctx: CanvasRenderingContext2D;
-  canvas: HTMLCanvasElement;
-  width: number;
-  height: number;
-  minJumpHeight: number;
-  maxJumpHeight: number;
-  scaleRatio: number;
-  sprite: HTMLImageElement;
-  x: number;
-  y: number;
-  initialStandingSprite: HTMLImageElement;
-  yInitialStandingPosition: number;
+  private ctx: CanvasRenderingContext2D;
+  private canvas: HTMLCanvasElement;
+  private width: number;
+  private height: number;
+  private minJumpHeight: number;
+  private maxJumpHeight: number;
+  private scaleRatio: number;
+  private sprite: HTMLImageElement;
+  private x: number;
+  private y: number;
+  private initialStandingSprite: HTMLImageElement;
+  private yInitialStandingPosition: number;
 
   walkAnimationCountdown: number = WALK_ANIMATION_COUNTDOWN;
   playerRunningSprites: HTMLImageElement[] = [];
@@ -29,7 +29,8 @@ export default class Player {
     height: number,
     minJumpHeight: number,
     maxJumpHeight: number,
-    scaleRatio: number
+    scaleRatio: number,
+    onLoaded?: () => void,
   ) {
     this.ctx = ctx;
     this.canvas = ctx.canvas;
@@ -73,7 +74,6 @@ export default class Player {
 
     window.addEventListener("touchstart", this.handleTouchStart);
     window.addEventListener("touchend", this.handleTouchEnd);
-
   }
 
   handleKeyDown = (e: KeyboardEvent) => {

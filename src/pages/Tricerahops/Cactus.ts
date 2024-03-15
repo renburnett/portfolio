@@ -1,10 +1,10 @@
 export default class Cactus {
-  ctx: CanvasRenderingContext2D;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  image: HTMLImageElement;
+  private ctx: CanvasRenderingContext2D;
+  public x: number;
+  private y: number;
+  public width: number;
+  private height: number;
+  private image: HTMLImageElement;
 
   constructor(
     ctx: CanvasRenderingContext2D,

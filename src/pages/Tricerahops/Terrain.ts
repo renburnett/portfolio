@@ -8,13 +8,15 @@ export default class Terrain {
   private x: number = 0;
   private y: number;
   private terrainSprite: HTMLImageElement;
+  public milesRan: number = 0;
 
   constructor(
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
     speed: number,
-    scaleRatio: number
+    scaleRatio: number,
+    onLoaded?: () => void,
   ) {
     this.ctx = ctx;
     this.canvas = ctx.canvas;
@@ -26,6 +28,14 @@ export default class Terrain {
     this.y = this.canvas.height - this.height;
 
     this.terrainSprite = new Image();
+
+    //TODO: dont do initial draw until all assets are loaded
+    // this.terrainSprite.onload = () => {
+    //   if (onLoaded) {
+    //     onLoaded();
+    //   }
+    // };
+
     this.terrainSprite.src = "src/assets/sprites/terrain.png";
   }
 
@@ -52,6 +62,7 @@ export default class Terrain {
 
       if (this.x < -this.width) {
         this.x = 0;
+        this.milesRan += 1;
       }
     };
 
@@ -69,6 +80,7 @@ export default class Terrain {
 
     reset = () => {
       this.x = 0;
+      this.milesRan = 0;
     };
 
   update = (gameSpeed: number, frameTimeDelta: number) => {

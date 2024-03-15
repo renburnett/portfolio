@@ -1,9 +1,11 @@
 import Player from "./Player";
 import Terrain from "./Terrain";
 //TODO: export default?
-import { CactusController } from "./CactusController";
+import CactusController from "./CactusController";
+import Score from "./Score";
 
 export const SPRITE_SCALE_DOWN_RATIO = 1.5;
+export const CACTUS_SPRITE_SCALE_DOWN_RATIO = 1.75;
 
 export type ImageConfig = {
   width: number;
@@ -11,7 +13,7 @@ export type ImageConfig = {
   path: string;
 }
 
-export type GameEntity = Player | Terrain | CactusController | null;
+export type GameEntity = Player | Terrain | CactusController | Score | null;
 
 // TODO: move this to constants file
 export const GAME_WIDTH = 800;
@@ -20,7 +22,7 @@ export const GAME_HEIGHT = 200;
 export const PLAYER_WIDTH = 88 / SPRITE_SCALE_DOWN_RATIO; // (88 / 1.5 = 58px)
 export const PLAYER_HEIGHT = 94 / SPRITE_SCALE_DOWN_RATIO; // (94 / 1.5 = 62px)
 
-export const MIN_JUMP_HEIGHT = 150;
+export const MIN_JUMP_HEIGHT = 160;
 export const MAX_JUMP_HEIGHT = 220;
 
 export const TERRAIN_HEIGHT = 24;
@@ -28,22 +30,22 @@ export const TERRAIN_WIDTH = 2400;
 export const TERRAIN_AND_CACTUS_SPEED = 0.5;
 
 export const GAME_SPEED_START = 0.75; // EVENTUALLY 1.0
-export const GAME_SPEED_INCREMENT = 0.001;
+export const GAME_SPEED_INCREMENT = 0.00001;
 
 export const CACTUS_CONFIG = [
   {
-    width: 48 / SPRITE_SCALE_DOWN_RATIO,
-    height: 100 / SPRITE_SCALE_DOWN_RATIO,
+    width: 48 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
+    height: 100 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
     path: "src/assets/sprites/cactus_1.png",
   },
   {
-    width: 98 / SPRITE_SCALE_DOWN_RATIO,
-    height: 100 / SPRITE_SCALE_DOWN_RATIO,
+    width: 98 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
+    height: 100 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
     path: "src/assets/sprites/cactus_2.png",
   },
   {
-    width: 68 / SPRITE_SCALE_DOWN_RATIO,
-    height: 70 / SPRITE_SCALE_DOWN_RATIO,
+    width: 68 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
+    height: 70 / CACTUS_SPRITE_SCALE_DOWN_RATIO,
     path: "src/assets/sprites/cactus_3.png",
   },
 ];
@@ -54,6 +56,8 @@ class Game {
   player: Player | null = null;
   terrain: Terrain | null = null;
   cactusController: CactusController | null = null;
+  score: Score | null = null;
+
   scaleRatio: number = 1;
   previousTime: number | null = null;
   gameSpeed: number = GAME_SPEED_START;
@@ -65,6 +69,17 @@ class Game {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d")!;
+  }
+
+  initialize = () => {
+    /* timeout is a stop-gap bc i'm lazy and dont want to refactor to `await loadAssets()` atm */
+    setTimeout(() => {
+      this.draw(this.terrain);
+      this.draw(this.cactusController);
+      this.draw(this.player);
+
+      this.showGameStartText("please click blue start button.");
+    }, 900)
   }
 
   createSprites = () => {
@@ -84,6 +99,7 @@ class Game {
       minJumpHeightInGame,
       maxJumpHeightInGame,
       this.scaleRatio,
+      // () => this.allAssetsLoaded.push(true),
     );
 
     this.terrain = new Terrain(
@@ -92,10 +108,12 @@ class Game {
       terrainHeightInGame,
       TERRAIN_AND_CACTUS_SPEED,
       this.scaleRatio,
+      // () => this.allAssetsLoaded.push(true),
     );
 
     const cactusSprites = CACTUS_CONFIG.map((cactus: ImageConfig) => {
       const cactusSprite = new Image();
+
       cactusSprite.src = cactus.path;
 
       return {
@@ -111,6 +129,8 @@ class Game {
       this.scaleRatio,
       TERRAIN_AND_CACTUS_SPEED,
     );
+
+    this.score = new Score(this.ctx, this.scaleRatio);
   };
 
   setScreen = () => {
@@ -154,6 +174,12 @@ class Game {
     if (entity !== null) entity.draw();
   }
 
+  updateGameSpeed(frameTimeDelta: number) {
+    if (this.terrain && this.terrain.milesRan % 2 === 0) {
+      this.gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
+    }
+  }
+
   showGameOverText = () => {
     const fontSize = 40 * this.scaleRatio;
     this.ctx.font = `${fontSize}px Trebuchet MS, Arial, sans-serif`;
@@ -163,18 +189,19 @@ class Game {
     this.ctx.fillText("game over.", x, y);
   };
 
-  showGameStartText = () => {
+  showGameStartText = (text: string = 'tap screen or press spacebar to start.') => {
     const fontSize = 30 * this.scaleRatio;
     this.ctx.font = `${fontSize}px Trebuchet MS, Arial, sans-serif`;
     this.ctx.fillStyle = "grey";
     const x = this.canvas.width / 4;
     const y = this.canvas.height / 2;
-    this.ctx.fillText("tap screen or press spacebar to start.", x, y);
+    this.ctx.fillText(text, x, y);
   };
 
-  /* TODO: change this to setTimeout? */
+  /* TODO: change this to while loop? */
   /* (the speed at which requestAnimationFrame is called depends on your monitors refresh rate [e.g. 60hz]) */
   gameLoop = (currentTime: number) => {
+    console.log('gameLoop running...', this.gameSpeed)
     if (this.previousTime === null) {
       this.previousTime = currentTime;
       requestAnimationFrame(this.gameLoop);
@@ -192,15 +219,20 @@ class Game {
       this.update(this.terrain, this.gameSpeed, frameTimeDelta);
       this.update(this.cactusController, this.gameSpeed, frameTimeDelta);
       this.update(this.player, this.gameSpeed, frameTimeDelta);
+      this.update(this.score, this.gameSpeed, frameTimeDelta);
+
+      this.updateGameSpeed(frameTimeDelta);
 
       if (this.cactusController?.collideWith(this.player)) {
         this.isRunning = false;
+        this.score?.setHighScore();
         this.handleGameReset();
       }
 
       this.draw(this.terrain);
       this.draw(this.cactusController);
       this.draw(this.player);
+      this.draw(this.score);
     }
 
     if (!this.isRunning) {
@@ -215,9 +247,13 @@ class Game {
   }
 
   start = () => {
-    requestAnimationFrame(this.gameLoop);
-    this.isRunning = true;
-    this.waitingToStart = false;
+    if (this.hasAddedEventListenersForRestart === true) {
+      this.reset();
+    } else {
+      requestAnimationFrame(this.gameLoop);
+      this.isRunning = true;
+      this.waitingToStart = false;
+    }
   }
 
   pause = () => {
@@ -236,7 +272,6 @@ class Game {
       setTimeout(() => {
         window.addEventListener("keyup", this.reset, { once: true });
         window.addEventListener("touchstart", this.reset, { once: true });
-        console.log('event listeners added');
       }, 1000);
     }
   }
@@ -246,11 +281,11 @@ class Game {
     this.hasAddedEventListenersForRestart = false;
     this.waitingToStart = false;
 
-    if (this.terrain && this.cactusController && this.player) {
+    if (this.terrain && this.cactusController && this.player && this.score) {
       this.terrain.reset();
       this.cactusController.reset();
       this.player.reset();
-      // this.scoreReset();
+      this.score.reset();
     }
 
     this.gameSpeed = GAME_SPEED_START;
