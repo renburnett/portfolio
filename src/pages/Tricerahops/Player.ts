@@ -1,7 +1,6 @@
 export const WALK_ANIMATION_COUNTDOWN = 200;
 
 export default class Player {
-
   ctx: CanvasRenderingContext2D;
   canvas: HTMLCanvasElement;
   width: number;
@@ -116,6 +115,7 @@ export default class Player {
   };
 
   jump = (frameTimeDelta: number) => {
+
     if (this.jumpPressed) {
       this.jumpInProgress = true;
     }
@@ -140,6 +140,11 @@ export default class Player {
       }
 
     }
+  };
+
+  reset = () => {
+    this.fallInProgress = false;
+    this.jumpInProgress = false;
   };
 
   update = (gameSpeed: number, frameTimeDelta: number) => {

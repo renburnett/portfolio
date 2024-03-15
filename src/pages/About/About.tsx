@@ -2,6 +2,7 @@ import { Grid, Card, Header, Image } from 'semantic-ui-react';
 import CONSTANTS from '../../constants';
 import triceratops from '../../assets/triceratops.png';
 import './About.scss';
+import { Link } from 'react-router-dom';
 
 const AboutMe = () => {
   return (
@@ -21,7 +22,8 @@ const AboutMe = () => {
               </Card>
               <Card
                 className="about-card"
-                href='https://web.archive.org/web/20080726035245/http://www.lost-world.com/ingen/index.html'
+                as={Link}
+                to="/tricerahops"
               >
                 <Image src={triceratops}/>
                 <Card.Content extra>

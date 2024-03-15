@@ -1,4 +1,7 @@
 {
   "appService.defaultWebAppToDeploy": "/subscriptions/ac6f00c1-41b3-484c-b8e1-029ac5281bb3/AppServices/subscriptions/ac6f00c1-41b3-484c-b8e1-029ac5281bb3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/ren-burnett",
-  "appService.deploySubpath": "."
+  "appService.deploySubpath": ".",
+  "cSpell.words": [
+    "tricerahops"
+  ]
 }

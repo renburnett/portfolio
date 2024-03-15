@@ -30,7 +30,7 @@ export default class Terrain {
   }
 
   /*
-    print two terrains to account for blank space when the end is reached,
+    print two terrains to account for potential blank space when the end is reached,
     when the x-position is less than the terrain width, reset the x-position back to 0
    */
   draw = () => {
@@ -66,6 +66,10 @@ export default class Terrain {
     //     layer.x -= layer.speed;
     //   });
     // };
+
+    reset = () => {
+      this.x = 0;
+    };
 
   update = (gameSpeed: number, frameTimeDelta: number) => {
     this.x -= gameSpeed * frameTimeDelta * this.speed * this.scaleRatio;
