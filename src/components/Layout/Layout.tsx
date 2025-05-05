@@ -1,16 +1,16 @@
-import { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { useGlobal } from '../../contexts/Global';
 import { Navbar } from '../index';
-import './Layout.scss';
 import Footer from '../Footer/Footer';
+import './Layout.scss';
+import { Modal, ModalHeader, ModalContent, ModalActions, Button } from 'semantic-ui-react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Navbar />
       <div className='layout-container'>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </div>
     </>

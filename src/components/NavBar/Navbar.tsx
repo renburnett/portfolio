@@ -14,7 +14,7 @@ const NavBar = () => {
       <Menu.Item name='resume' as={Link} to='/cv'>
         <Icon name='file alternate outline' />
       </Menu.Item>
-      <Menu.Item name='tricerahops' as={Link} to='/tricerahops'>
+      <Menu.Item name='snake-game' as={Link} to='/snake-game'>
         <Icon name='gamepad' />
       </Menu.Item>
       {/* <Menu.Item name='projects' as={Link} to='/projects' /> */}
