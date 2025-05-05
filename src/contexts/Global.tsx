@@ -9,10 +9,10 @@ type GlobalState = {
     open: boolean,
     title?: string,
     message?: string,
-    onCancel?: () => void,
+    confirmationOnly?: boolean,
     onConfirm?: () => void,
+    onCancel?: () => void,
     size?: ModalSize,
-    confirmationOnly?: boolean
   ) => void;
 };
 
@@ -25,8 +25,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
     title: string;
     message: string;
     confirmationOnly?: boolean;
-    onCancel?: () => void;
     onConfirm?: () => void;
+    onCancel?: () => void;
   }>({
     open: false,
     size: 'mini',
@@ -40,19 +40,19 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   * @param open - whether to show (true) or hide (false) the modal
   * @param title - optional modal title
   * @param message - optional modal message content
-  * @param onCancel - optional callback executed when the user clicks cancel
-  * @param onConfirm - optional callback executed when the user clicks confirm
-  * @param size - optional modal size ('mini' | 'tiny' | 'small' | 'large' | 'fullscreen')
   * @param confirmationOnly - optional flag to hide the cancel button when true
+  * @param onConfirm - optional callback executed when the user clicks confirm
+  * @param onCancel - optional callback executed when the user clicks cancel
+  * @param size - optional modal size ('mini' | 'tiny' | 'small' | 'large' | 'fullscreen')
   */
   const openModal = (
     open: boolean,
     title: string = '',
     message: string = '',
+    confirmationOnly: boolean = false,
     onConfirm?: () => void,
     onCancel?: () => void,
     size: ModalSize = 'mini',
-    confirmationOnly: boolean = false
   ) => {
     setModalState({ open, size, title, message, confirmationOnly, onConfirm, onCancel });
   };
@@ -81,12 +81,12 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
         </ModalContent>
         <ModalActions>
           {!modalState.confirmationOnly && (
-            <Button negative onClick={handleCancel}>
+            <Button secondary onClick={handleCancel}>
               No
             </Button>
           )}
-          <Button positive onClick={handleConfirm}>
-            Yes
+          <Button primary onClick={handleConfirm}>
+          {modalState.confirmationOnly ? 'Ok' : 'Yes'}
           </Button>
         </ModalActions>
       </Modal>

@@ -107,12 +107,9 @@ const SnakeGame = () => {
       openModal(
         true,
         "You Lost!",
-        `Your final score was ${score}. Would you like to play again?`,
-        () => {
-          console.log("Restarting!");
-          setScore(0);
-          setGameRunning(true);
-        },
+        `Your final score was ${score}.`,
+        true,
+        () => setScore(0),
         () => console.log("Cancelled"),
       );
     };
