@@ -15,3 +15,6 @@ FROM nginx:latest
 
 # copy built files
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# override default nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf

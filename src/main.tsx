@@ -8,7 +8,7 @@ import Layout from "./components/Layout/Layout.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import "semantic-ui-css/semantic.min.css";
-import GameCanvas from "./pages/Tricerahops/GameCanvas.tsx";
+import SnakeGame from "./pages/SnakeGame/SnakeGame.tsx";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +39,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/tricerahops",
+    path: "/snake-game",
     element: (
       <Layout>
-        <GameCanvas />
+        <SnakeGame />
       </Layout>
     ),
     errorElement: <ErrorPage />,

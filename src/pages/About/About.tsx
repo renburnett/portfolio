@@ -23,7 +23,7 @@ const AboutMe = () => {
               <Card
                 className="about-card"
                 as={Link}
-                to="/tricerahops"
+                to="/snake-game"
               >
                 <Image src={triceratops}/>
                 <Card.Content extra>
