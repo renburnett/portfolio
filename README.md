@@ -1,9 +1,10 @@
 ## Personal Portfolio
 
 This project was built with React and makes use of:
-  - GitHub's GraphQL API
-  - And the Semantic-React-Ui package for styling
-This project is a chance to give a quick overview of past projects and a few of my personal interests.
+
+- GitHub's GraphQL API
+- And the Semantic-React-Ui package for styling
+  This project is a chance to give a quick overview of past projects and a few of my personal interests.
 
 **Feel free to head over there and poke around!**
 https://www.renburnett.com

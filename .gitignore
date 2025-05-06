@@ -6,6 +6,25 @@ logs
 **/*.back.*
 .vscode/*
 
+/dist/
+/build/
+
+.vite/
+
+*.tsbuildinfo
+
 node_modules
 bower_componets
+
 .env
+.env.*.local
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Misc
+.cache/
+.npm
