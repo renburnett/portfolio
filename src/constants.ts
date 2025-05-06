@@ -14,8 +14,7 @@ const CONSTANTS: {
 } = {
   CURRENT_CITY: "Bouncing between Los Angeles and Seattle",
   CURRENT_WORK: "https://mobyinc.com/",
-  QUICK_BIO_A:
-    "Hi there! My name is Ren, and I'm a Full Stack Developer. I am currently working for ",
+  QUICK_BIO_A: "Hi there! My name is Ren, and I'm a Full Stack Developer. I am currently working for ",
   QUICK_BIO_B:
     " --a boutique tech company where we create/maintain websites, mobile applications and other technical solutions! During my time at Moby I've been lucky enough to jump around between several different projects and I've added numerous features to some of our main/legacy projects, a prominent one being the Pagliacci website. As a quick example, I've added an 'order status visualization' widget that polls the backend and updates the UI to let the user know when the order is either `received`, `en-route` or `picked-up/delivered.` The Pagliacci website is written in Angular and we use observables for monitoring most state-change throughout the app. All in all, I'd consider myself a developer who enjoys problem solving and friendly collaboration on my path to a solution! (And for my final 'humble-brag' 😂) I was lucky enough to have one of the articles I'd written featured on ",
   ABOUT_ME:

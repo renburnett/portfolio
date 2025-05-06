@@ -1,7 +1,7 @@
 import { Card, Grid, Header, Image, Label } from "semantic-ui-react";
 import CONSTANTS from "../../constants";
-import ron from '../../assets/ron.jpg';
-import './Landing.scss';
+import ron from "../../assets/ron.jpg";
+import "./Landing.scss";
 
 const Landing = () => {
   return (
@@ -25,17 +25,11 @@ const Landing = () => {
                 </Header>
                 <Card.Description>
                   {CONSTANTS.QUICK_BIO_A}
-                  <Label
-                    color="blue"
-                    href={CONSTANTS.CURRENT_WORK}
-                  >
+                  <Label color="blue" href={CONSTANTS.CURRENT_WORK}>
                     Moby
                   </Label>
                   {CONSTANTS.QUICK_BIO_B}
-                  <Label
-                    color="blue"
-                    href={CONSTANTS.MEDIUM_BLOG}
-                  >
+                  <Label color="blue" href={CONSTANTS.MEDIUM_BLOG}>
                     Level Up Coding
                   </Label>
                 </Card.Description>

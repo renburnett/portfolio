@@ -59,4 +59,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </GlobalProvider>
   </React.StrictMode>
 );
-
