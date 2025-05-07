@@ -1,5 +1,5 @@
+# build react app
 FROM node:18.2.0 AS builder
-
 WORKDIR /app
 
 COPY package*.json ./

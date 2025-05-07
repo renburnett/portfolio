@@ -5,10 +5,36 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # image: nginx:latest
     container_name: webserver
-    ports:
-      - "3666:80"
-    # volumes:
-    #   - ./:/usr/share/nginx/html:ro
+    expose:
+      - "80" # make port 80 available to the Docker network
     restart: always
+    networks:
+      - webnet
+
+  # LinuxServer SWAG (Secure Web Application Gateway)
+  swag:
+    image: linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN                # needed to bind low ports and manage cert challenges
+    environment:
+      - PUID=501
+      - PGID=20
+      - TZ=America/Los_Angeles
+      - URL=renburnett.io
+      - SUBDOMAINS=www           # comma‑separated subdomains; omit or blank for apex only
+      - VALIDATION=http          # use the HTTP challenge on port 80
+      # - STAGING=true           # optional: test without hitting LE rate limits
+    volumes:
+      - ./swag/config:/config    # where SWAG will store certs & nginx configs
+    ports:
+      - "80:80"                  # HTTP in → SWAG
+      - "443:443"                # HTTPS in → SWAG
+    restart: always
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
