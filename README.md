@@ -1,13 +1,9 @@
 ## Personal Portfolio
 
-This project was built with React and makes use of:
-
-- GitHub's GraphQL API
-- And the Semantic-React-Ui package for styling
-  This project is a chance to give a quick overview of past projects and a few of my personal interests.
+This project was built with React and Vite
 
 **Feel free to head over there and poke around!**
-https://www.renburnett.com
+https://renburnett.io
 
 ![Landing Page!](https://live.staticflickr.com/65535/49363862343_999ed614b8_w.jpg)
 
