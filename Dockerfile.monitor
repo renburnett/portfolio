@@ -1,0 +1,16 @@
+FROM alpine:latest
+
+# install curl, cron, mail client and root CAs
+RUN apk add --no-cache curl dcron msmtp-mta ca-certificates
+
+COPY monitor-port-forwarding.sh /usr/local/bin/monitor-port-forwarding.sh
+COPY entrypoint.sh /entrypoint.sh
+
+# make them executable & register cron
+RUN chmod +x /usr/local/bin/monitor-port-forwarding.sh /entrypoint.sh \
+    && printf "*/5 * * * * /usr/local/bin/monitor-port-forwarding.sh >> /var/log/monitor.log 2>&1\n" \
+       > /etc/crontabs/root
+
+# generate msmtp config at container start, then run cron
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["crond","-f","-l","2"]

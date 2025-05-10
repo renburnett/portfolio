@@ -12,7 +12,7 @@ services:
     networks:
       - webnet
 
-  # LinuxServer SWAG (Secure Web Application Gateway)
+  # linuxserver swag (secure web application gateway)
   swag:
     image: linuxserver/swag
     container_name: swag
@@ -34,6 +34,26 @@ services:
     restart: always
     networks:
       - webnet
+
+  # cronjob to check if port forwarding is still up
+  monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile.monitor
+    container_name: port_monitor
+    volumes:
+      - ./monitor-port-forwarding.sh:/usr/local/bin/monitor-port-forwarding.sh:ro
+      - ./monitor-port-forwarding.log:/var/log/monitor-port-forwarding.log
+    
+    # TODO: configure SMTP tings
+    # environment:
+    #   SMTP_HOST: smtp.mailprovider.com
+    #   SMTP_PORT: 587
+    #   SMTP_USER: you@example.com
+    #   SMTP_PASS: your_smtp_password
+    #   SMTP_FROM: monitor@renburnett.io
+    #   ALERT_EMAIL: your.email@domain.com
+    restart: always
 
 networks:
   webnet:

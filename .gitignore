@@ -22,9 +22,18 @@ bower_componets
 # macOS
 .DS_Store
 
-# Linux
+# linux
 *~
 
-# Misc
+# misc
 .cache/
 .npm
+
+# ignore everything under swag/config
+swag/config/**
+
+# keep custom proxy
+!swag/config/nginx/site-confs/renburnett.conf
+
+# and other site-confs
+!swag/config/nginx/site-confs/*.conf
